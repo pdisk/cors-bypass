@@ -1,5 +1,5 @@
 requests
 flask == 2.1.2
 gunicorn
-uvicorn
+uvicorn == 0.17.6
 asgiref
