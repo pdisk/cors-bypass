@@ -5,6 +5,9 @@ import requests
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def proxy():
+    return "online"
 
 @app.route('/get/<path:url>', methods=['GET'])
 def proxy(url):
