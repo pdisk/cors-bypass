@@ -10,7 +10,6 @@ app = Flask(__name__)
 def proxy(url):
     url = urllib.parse.unquote(url)
     print(url)
-    url = "https://api.allorigins.win/raw?url=" + url
     response = requests.get(url, stream=True)
     headers = {key: value for key, value in response.headers.items()}
     headers['Access-Control-Allow-Origin'] = '*'
