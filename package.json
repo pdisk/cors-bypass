@@ -1,0 +1,20 @@
+{
+"name": "cors-bypass",
+"version": "1.0.0",
+"description": "",
+"scripts": {
+  "build": "echo \"No build specified\" && exit 1",
+  "test": "echo \"No test specified\" && exit 1",
+  "start": "gunicorn main:app"
+  },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/pdisk/cors-bypass.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": "https://github.com/pdisk/cors-bypass/issues"
+  },
+  "homepage": "https://github.com/pdisk/cors-bypass#readme"
+}
