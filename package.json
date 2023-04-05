@@ -17,9 +17,9 @@
   "url": "https://github.com/pdisk/cors-bypass/issues"
   },
 "dependencies": {
-    "flask": "",
-    "gunicorn": "",
-    "requests": "",
+    "flask": "^0.0.0",
+    "gunicorn": "^0.0.0",
+    "requests": "^0.0.0",
 },
 "homepage": "https://github.com/pdisk/cors-bypass#readme"
 }
