@@ -16,10 +16,14 @@
   "bugs": {
   "url": "https://github.com/pdisk/cors-bypass/issues"
   },
-"dependencies": {
-    "flask": "^0.0.0",
-    "gunicorn": "^0.0.0",
-    "requests": "^0.0.0",
+"dependencies": { 
+    "async": "^0.2.10", 
+   "npm2es": "~0.4.2", 
+   "optimist": "~0.6.0", 
+   "request": "~2.30.0",
+   "skateboard": "^1.5.1",
+   "split": "^0.3.0",
+   "weld": "^0.2.2"
 },
 "homepage": "https://github.com/pdisk/cors-bypass#readme"
 }
