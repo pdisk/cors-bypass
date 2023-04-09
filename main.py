@@ -11,6 +11,22 @@ CORS(app)
 def home():
     return "online"
 
+def html_decode(s):
+    """
+    Returns the ASCII decoded version of the given HTML string. This does
+    NOT remove normal HTML tags like <p>.
+    """
+    htmlCodes = (
+            ("'", '&#39;'),
+            ('"', '&quot;'),
+            ('>', '&gt;'),
+            ('<', '&lt;'),
+            ('&', '&amp;')
+        )
+    for code in htmlCodes:
+        s = s.replace(code[1], code[0])
+    return s
+
 @app.route('/get/<path:url>', methods=['GET'])
 def proxy(url):
     url = urllib.parse.unquote(url)
@@ -32,9 +48,9 @@ def parse_html(r):
     # sources = re.findall('<span itemprop="description" content="([^"]*)"', r)
     results = []
     for i in range(len(articles)):
-        data = {"title": titles[i],
-                "article": articles[i],
-                "author": authors[i],
+        data = {"title": html_decode(titles[i]),
+                "article": html_decode(articles[i]),
+                "author": html_decode(authors[i]),
                 "image": images[i],
                 "time": times[i],
                 "date": dates[i],
@@ -50,7 +66,7 @@ def parse_search_data(r):
             return
         article = x.get("summary")
         image = x.get("leadMedia").get("image").get("images").get("original")
-        json = {"title": title, "article": article, "image": image}
+        json = {"title": html_decode(title), "article": html_decode(article), "image": image}
         data.append(json)
     return data
 
