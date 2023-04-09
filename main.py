@@ -42,11 +42,32 @@ def parse_html(r):
         results.append(data)
     return results
 
-@app.route('/news/<cat>')
-def newsapi(cat):
+def parse_search_data(r):
+    data = []
+    for x in r:
+        title = x.get("title")
+        if not title:
+            return
+        article = x.get("summary")
+        image = x.get("leadMedia").get("image").get("images").get("original")
+        json = {"title": title, "article": article, "image": image}
+        data.append(json)
+    return data
+
+@app.route('/news/get/<cat>')
+def get_news(cat):
     r = requests.post("https://inshorts.com/en/ajax/more_news", json={"category": cat})
     r = r.json().get("html")
     data = parse_html(r)
+    json = {"results": data}
+    return json
+
+@app.route('/news/search/<key>')
+def search_news(key):
+    r = requests.post("https://api.hindustantimes.com/api/articles/search",
+                  json={"searchKeyword": key, "page": 1, "size": 25, "type": "story"})
+    r = r.json().get("content")
+    data = parse_search_data(r)
     json = {"results": data}
     return json
 
