@@ -56,6 +56,8 @@ def parse_search_data(r):
 
 @app.route('/news/get/<cat>')
 def get_news(cat):
+    if cat == "latest":
+        cat = ""
     r = requests.post("https://inshorts.com/en/ajax/more_news", json={"category": cat})
     r = r.json().get("html")
     data = parse_html(r)
