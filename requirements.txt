@@ -3,3 +3,4 @@ flask == 2.1.2
 gunicorn
 uvicorn == 0.17.6
 asgiref
+flask_cors 
