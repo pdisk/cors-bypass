@@ -65,7 +65,7 @@ def get_news(cat):
 @app.route('/news/search/<key>')
 def search_news(key):
     r = requests.post("https://api.hindustantimes.com/api/articles/search",
-                  json={"searchKeyword": key, "page": 1, "size": 25, "type": "story"})
+                  json={"searchKeyword": key, "page": 1, "size": 10, "type": "story"})
     r = r.json().get("content")
     data = parse_search_data(r)
     json = {"results": data}
