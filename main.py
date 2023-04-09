@@ -47,7 +47,8 @@ def newsapi(cat):
     r = requests.post("https://inshorts.com/en/ajax/more_news", json={"category": cat})
     r = r.json().get("html")
     data = parse_html(r)
-    return data
+    json = {"results": data}
+    return json
 
 
 if __name__ == '__main__':
