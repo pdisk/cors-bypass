@@ -7,4 +7,3 @@ flask_cors
 typing
 aiohttp
 pydantic
-codecs
