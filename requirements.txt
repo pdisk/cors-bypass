@@ -4,3 +4,7 @@ gunicorn
 uvicorn == 0.17.6
 asgiref
 flask_cors 
+typing
+aiohttp
+pydantic
+codecs
